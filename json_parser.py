@@ -1,13 +1,13 @@
 import json
 import numpy as np
 import cv2
+
+json_data = open("C:\\Users\\User\\PycharmProjects\\putting_car_on_road\\car_proj\\frankfurt.json").read()
+data = json.loads(json_data)
+objects = data["objects"]
+img = np.zeros((1024, 2048, 3), np.uint8)
+img.fill(255)
 def getRoad():
-    img = np.zeros((1024,2048,3), np.uint8)
-    img.fill(255)
-    json_data = open("C:\\Users\\User\\Desktop\\car_proj\\hanover.json").read()
-    data = json.loads(json_data)
-    objects = data["objects"]
-    sky = objects[0]["polygon"];
     for object in objects:
         if (object["label"]=="road"):
             road = object["polygon"]
@@ -16,6 +16,13 @@ def getRoad():
     # cv2.fillPoly(img, [sky], (255,181,107))
     # road = np.asarray(road,np.int32)
     # cv2.fillPoly(img, [road], (0,0,0))
-    # cv2.imshow("IMAGE",img)
-    # cv2.waitKey(10000)
+
     return road;
+
+def getCars():
+    cars = []
+    for object in objects:
+        if (object["label"]=="car"):
+            cars.append(object["polygon"]);
+
+    return cars
