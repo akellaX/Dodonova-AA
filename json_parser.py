@@ -2,7 +2,7 @@ import json
 import numpy as np
 import cv2
 
-json_data = open("C:\\Users\\User\\PycharmProjects\\putting_car_on_road\\car_proj\\frankfurt.json").read()
+json_data = open("car_proj\\frankfurt.json").read()
 data = json.loads(json_data)
 objects = data["objects"]
 img = np.zeros((1024, 2048, 3), np.uint8)
