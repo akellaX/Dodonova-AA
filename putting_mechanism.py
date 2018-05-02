@@ -8,7 +8,7 @@ from shapely.geometry import LineString
 import shapely.geometry as geometry
 
 HORIZEN = 400
-horizontal = 600
+horizontal = 500
 
 GREEN = (33, 204, 41)
 
